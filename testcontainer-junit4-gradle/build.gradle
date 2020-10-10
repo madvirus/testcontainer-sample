@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'testcontainer-sample'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.mariadb.jdbc:mariadb-java-client:2.7.0")
+    implementation("ch.qos.logback:logback-core:1.2.3")
+
+    testCompile("junit:junit:4.12")
+    testImplementation("org.testcontainers:testcontainers:1.14.3")
+    testImplementation("org.testcontainers:mariadb:1.14.3")
+}
